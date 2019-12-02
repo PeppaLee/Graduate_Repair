@@ -1,4 +1,4 @@
-package com.company.dao.pojo;
+package com.repair.dao.pojo;
 
 public class Login {
     private Integer userid;

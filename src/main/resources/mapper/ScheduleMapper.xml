@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.ScheduleMapper" >
-  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Schedule" >
+<mapper namespace="com.repair.dao.ScheduleMapper" >
+  <resultMap id="BaseResultMap" type="com.repair.dao.pojo.Schedule" >
     <constructor >
       <idArg column="schid" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="empno" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -24,7 +24,7 @@
     delete from schedule
     where schid = #{schid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.company.dao.pojo.Schedule" >
+  <insert id="insert" parameterType="com.repair.dao.pojo.Schedule" >
     insert into schedule (schid, empno, phoneid, 
       repairschdeule, expectresult, declare
       )
@@ -32,7 +32,7 @@
       #{repairschdeule,jdbcType=VARCHAR}, #{expectresult,jdbcType=VARCHAR}, #{declare,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.company.dao.pojo.Schedule" >
+  <insert id="insertSelective" parameterType="com.repair.dao.pojo.Schedule" >
     insert into schedule
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="schid != null" >
@@ -75,7 +75,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Schedule" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.repair.dao.pojo.Schedule" >
     update schedule
     <set >
       <if test="empno != null" >
@@ -96,7 +96,7 @@
     </set>
     where schid = #{schid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Schedule" >
+  <update id="updateByPrimaryKey" parameterType="com.repair.dao.pojo.Schedule" >
     update schedule
     set empno = #{empno,jdbcType=INTEGER},
       phoneid = #{phoneid,jdbcType=INTEGER},

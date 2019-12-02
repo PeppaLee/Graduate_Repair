@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.PhoneMapper" >
-  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Phone" >
+<mapper namespace="com.repair.dao.PhoneMapper" >
+  <resultMap id="BaseResultMap" type="com.repair.dao.pojo.Phone" >
     <constructor >
       <idArg column="phoneid" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="ptype" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -21,13 +21,13 @@
     delete from phone
     where phoneid = #{phoneid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.company.dao.pojo.Phone" >
+  <insert id="insert" parameterType="com.repair.dao.pojo.Phone" >
     insert into phone (phoneid, ptype, reason
       )
     values (#{phoneid,jdbcType=INTEGER}, #{ptype,jdbcType=VARCHAR}, #{reason,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.company.dao.pojo.Phone" >
+  <insert id="insertSelective" parameterType="com.repair.dao.pojo.Phone" >
     insert into phone
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="phoneid != null" >
@@ -52,7 +52,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Phone" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.repair.dao.pojo.Phone" >
     update phone
     <set >
       <if test="ptype != null" >
@@ -64,7 +64,7 @@
     </set>
     where phoneid = #{phoneid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Phone" >
+  <update id="updateByPrimaryKey" parameterType="com.repair.dao.pojo.Phone" >
     update phone
     set ptype = #{ptype,jdbcType=VARCHAR},
       reason = #{reason,jdbcType=VARCHAR}

@@ -1,6 +1,6 @@
-package com.company.dao;
+package com.repair.dao;
 
-import com.company.dao.pojo.Phone;
+import com.repair.dao.pojo.Phone;
 
 public interface PhoneMapper {
     int deleteByPrimaryKey(Integer phoneid);

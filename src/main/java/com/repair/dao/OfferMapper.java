@@ -1,6 +1,6 @@
-package com.company.dao;
+package com.repair.dao;
 
-import com.company.dao.pojo.Offer;
+import com.repair.dao.pojo.Offer;
 
 public interface OfferMapper {
     int deleteByPrimaryKey(Integer partid);

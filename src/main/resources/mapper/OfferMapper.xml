@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.OfferMapper" >
-  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Offer" >
+<mapper namespace="com.repair.dao.OfferMapper" >
+  <resultMap id="BaseResultMap" type="com.repair.dao.pojo.Offer" >
     <constructor >
       <idArg column="partid" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="partname" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -21,13 +21,13 @@
     delete from offer
     where partid = #{partid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.company.dao.pojo.Offer" >
+  <insert id="insert" parameterType="com.repair.dao.pojo.Offer" >
     insert into offer (partid, partname, offerprice
       )
     values (#{partid,jdbcType=INTEGER}, #{partname,jdbcType=VARCHAR}, #{offerprice,jdbcType=DECIMAL}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.company.dao.pojo.Offer" >
+  <insert id="insertSelective" parameterType="com.repair.dao.pojo.Offer" >
     insert into offer
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="partid != null" >
@@ -52,7 +52,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Offer" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.repair.dao.pojo.Offer" >
     update offer
     <set >
       <if test="partname != null" >
@@ -64,7 +64,7 @@
     </set>
     where partid = #{partid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Offer" >
+  <update id="updateByPrimaryKey" parameterType="com.repair.dao.pojo.Offer" >
     update offer
     set partname = #{partname,jdbcType=VARCHAR},
       offerprice = #{offerprice,jdbcType=DECIMAL}

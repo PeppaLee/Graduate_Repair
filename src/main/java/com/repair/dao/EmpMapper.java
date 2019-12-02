@@ -1,6 +1,6 @@
-package com.company.dao;
+package com.repair.dao;
 
-import com.company.dao.pojo.Emp;
+import com.repair.dao.pojo.Emp;
 
 public interface EmpMapper {
     int deleteByPrimaryKey(Integer empno);

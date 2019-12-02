@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.ComponentMapper" >
-  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Component" >
+<mapper namespace="com.repair.dao.ComponentMapper" >
+  <resultMap id="BaseResultMap" type="com.repair.dao.pojo.Component" >
     <constructor >
       <idArg column="cid" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="cname" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -22,13 +22,13 @@
     delete from component
     where cid = #{cid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.company.dao.pojo.Component" >
+  <insert id="insert" parameterType="com.repair.dao.pojo.Component" >
     insert into component (cid, cname, cprice, 
       inventory)
     values (#{cid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR}, #{cprice,jdbcType=DECIMAL}, 
       #{inventory,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.company.dao.pojo.Component" >
+  <insert id="insertSelective" parameterType="com.repair.dao.pojo.Component" >
     insert into component
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="cid != null" >
@@ -59,7 +59,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Component" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.repair.dao.pojo.Component" >
     update component
     <set >
       <if test="cname != null" >
@@ -74,7 +74,7 @@
     </set>
     where cid = #{cid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Component" >
+  <update id="updateByPrimaryKey" parameterType="com.repair.dao.pojo.Component" >
     update component
     set cname = #{cname,jdbcType=VARCHAR},
       cprice = #{cprice,jdbcType=DECIMAL},

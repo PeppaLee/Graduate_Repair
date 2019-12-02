@@ -1,6 +1,6 @@
-package com.company.dao;
+package com.repair.dao;
 
-import com.company.dao.pojo.Component;
+import com.repair.dao.pojo.Component;
 
 public interface ComponentMapper {
     int deleteByPrimaryKey(Integer cid);

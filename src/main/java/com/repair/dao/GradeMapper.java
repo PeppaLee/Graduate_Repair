@@ -1,6 +1,6 @@
-package com.company.dao;
+package com.repair.dao;
 
-import com.company.dao.pojo.Grade;
+import com.repair.dao.pojo.Grade;
 
 public interface GradeMapper {
     int deleteByPrimaryKey(Integer empno);

@@ -1,6 +1,6 @@
-package com.company.dao;
+package com.repair.dao;
 
-import com.company.dao.pojo.Record;
+import com.repair.dao.pojo.Record;
 
 public interface RecordMapper {
     int deleteByPrimaryKey(Integer recordid);

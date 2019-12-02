@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.LoginMapper" >
-  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Login" >
+<mapper namespace="com.repair.dao.LoginMapper" >
+  <resultMap id="BaseResultMap" type="com.repair.dao.pojo.Login" >
     <constructor >
       <idArg column="userid" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="username" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -22,13 +22,13 @@
     delete from login
     where userid = #{userid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.company.dao.pojo.Login" >
+  <insert id="insert" parameterType="com.repair.dao.pojo.Login" >
     insert into login (userid, username, password, 
       type)
     values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{type,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.company.dao.pojo.Login" >
+  <insert id="insertSelective" parameterType="com.repair.dao.pojo.Login" >
     insert into login
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userid != null" >
@@ -59,7 +59,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Login" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.repair.dao.pojo.Login" >
     update login
     <set >
       <if test="username != null" >
@@ -74,7 +74,7 @@
     </set>
     where userid = #{userid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Login" >
+  <update id="updateByPrimaryKey" parameterType="com.repair.dao.pojo.Login" >
     update login
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

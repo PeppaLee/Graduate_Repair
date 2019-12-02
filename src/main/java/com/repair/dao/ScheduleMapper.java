@@ -1,6 +1,6 @@
-package com.company.dao;
+package com.repair.dao;
 
-import com.company.dao.pojo.Schedule;
+import com.repair.dao.pojo.Schedule;
 
 public interface ScheduleMapper {
     int deleteByPrimaryKey(Integer schid);

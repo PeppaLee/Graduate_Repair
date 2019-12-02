@@ -1,6 +1,6 @@
-package com.company.dao;
+package com.repair.dao;
 
-import com.company.dao.pojo.Login;
+import com.repair.dao.pojo.Login;
 
 public interface LoginMapper {
     int deleteByPrimaryKey(Integer userid);
