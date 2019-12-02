@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.ScheduleMapper" >
+  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Schedule" >
+    <constructor >
+      <idArg column="schid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="empno" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="phoneid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="repairschdeule" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="expectresult" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="declare" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    schid, empno, phoneid, repairschdeule, expectresult, declare
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from schedule
+    where schid = #{schid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from schedule
+    where schid = #{schid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.company.dao.pojo.Schedule" >
+    insert into schedule (schid, empno, phoneid, 
+      repairschdeule, expectresult, declare
+      )
+    values (#{schid,jdbcType=INTEGER}, #{empno,jdbcType=INTEGER}, #{phoneid,jdbcType=INTEGER}, 
+      #{repairschdeule,jdbcType=VARCHAR}, #{expectresult,jdbcType=VARCHAR}, #{declare,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.company.dao.pojo.Schedule" >
+    insert into schedule
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="schid != null" >
+        schid,
+      </if>
+      <if test="empno != null" >
+        empno,
+      </if>
+      <if test="phoneid != null" >
+        phoneid,
+      </if>
+      <if test="repairschdeule != null" >
+        repairschdeule,
+      </if>
+      <if test="expectresult != null" >
+        expectresult,
+      </if>
+      <if test="declare != null" >
+        declare,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="schid != null" >
+        #{schid,jdbcType=INTEGER},
+      </if>
+      <if test="empno != null" >
+        #{empno,jdbcType=INTEGER},
+      </if>
+      <if test="phoneid != null" >
+        #{phoneid,jdbcType=INTEGER},
+      </if>
+      <if test="repairschdeule != null" >
+        #{repairschdeule,jdbcType=VARCHAR},
+      </if>
+      <if test="expectresult != null" >
+        #{expectresult,jdbcType=VARCHAR},
+      </if>
+      <if test="declare != null" >
+        #{declare,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Schedule" >
+    update schedule
+    <set >
+      <if test="empno != null" >
+        empno = #{empno,jdbcType=INTEGER},
+      </if>
+      <if test="phoneid != null" >
+        phoneid = #{phoneid,jdbcType=INTEGER},
+      </if>
+      <if test="repairschdeule != null" >
+        repairschdeule = #{repairschdeule,jdbcType=VARCHAR},
+      </if>
+      <if test="expectresult != null" >
+        expectresult = #{expectresult,jdbcType=VARCHAR},
+      </if>
+      <if test="declare != null" >
+        declare = #{declare,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where schid = #{schid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Schedule" >
+    update schedule
+    set empno = #{empno,jdbcType=INTEGER},
+      phoneid = #{phoneid,jdbcType=INTEGER},
+      repairschdeule = #{repairschdeule,jdbcType=VARCHAR},
+      expectresult = #{expectresult,jdbcType=VARCHAR},
+      declare = #{declare,jdbcType=VARCHAR}
+    where schid = #{schid,jdbcType=INTEGER}
+  </update>
+</mapper>

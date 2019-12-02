@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.OfferMapper" >
+  <resultMap id="BaseResultMap" type="com.company.dao.pojo.Offer" >
+    <constructor >
+      <idArg column="partid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="partname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="offerprice" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    partid, partname, offerprice
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from offer
+    where partid = #{partid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from offer
+    where partid = #{partid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.company.dao.pojo.Offer" >
+    insert into offer (partid, partname, offerprice
+      )
+    values (#{partid,jdbcType=INTEGER}, #{partname,jdbcType=VARCHAR}, #{offerprice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.company.dao.pojo.Offer" >
+    insert into offer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="partid != null" >
+        partid,
+      </if>
+      <if test="partname != null" >
+        partname,
+      </if>
+      <if test="offerprice != null" >
+        offerprice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="partid != null" >
+        #{partid,jdbcType=INTEGER},
+      </if>
+      <if test="partname != null" >
+        #{partname,jdbcType=VARCHAR},
+      </if>
+      <if test="offerprice != null" >
+        #{offerprice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.company.dao.pojo.Offer" >
+    update offer
+    <set >
+      <if test="partname != null" >
+        partname = #{partname,jdbcType=VARCHAR},
+      </if>
+      <if test="offerprice != null" >
+        offerprice = #{offerprice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where partid = #{partid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.company.dao.pojo.Offer" >
+    update offer
+    set partname = #{partname,jdbcType=VARCHAR},
+      offerprice = #{offerprice,jdbcType=DECIMAL}
+    where partid = #{partid,jdbcType=INTEGER}
+  </update>
+</mapper>
