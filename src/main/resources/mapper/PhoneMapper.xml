@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.repair.dao.PhoneMapper" >
+<mapper namespace="com.repair.dao.imapper.PhoneMapper" >
   <resultMap id="BaseResultMap" type="com.repair.dao.pojo.Phone" >
     <constructor >
       <idArg column="phoneid" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -16,6 +16,12 @@
     <include refid="Base_Column_List" />
     from phone
     where phoneid = #{phoneid,jdbcType=INTEGER}
+  </select>
+
+  <select id="findByName" parameterType="map" resultType="com.repair.dao.pojo.Phone">
+    select
+    <include refid="Base_Column_List" />
+    from phone where ptype like concat('%',#{ptype},'%')
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from phone

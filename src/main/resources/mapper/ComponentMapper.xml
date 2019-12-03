@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.repair.dao.ComponentMapper" >
+<mapper namespace="com.repair.dao.imapper.ComponentMapper" >
   <resultMap id="BaseResultMap" type="com.repair.dao.pojo.Component" >
     <constructor >
       <idArg column="cid" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -18,7 +18,11 @@
     from component
     where cid = #{cid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <select id="findByName" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" /> from component where cname like concat('%',#{cname},'%')
+  </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from component
     where cid = #{cid,jdbcType=INTEGER}
   </delete>

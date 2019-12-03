@@ -40,4 +40,18 @@ public class Phone {
     public void setReason(String reason) {
         this.reason = reason == null ? null : reason.trim();
     }
+
+    public Phone(String ptype, String reason) {
+        this.ptype = ptype;
+        this.reason = reason;
+    }
+
+    @Override
+    public String toString() {
+        return "Phone{" +
+                "phoneid=" + phoneid +
+                ", ptype='" + ptype + '\'' +
+                ", reason='" + reason + '\'' +
+                '}';
+    }
 }

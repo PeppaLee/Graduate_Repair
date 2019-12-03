@@ -1,6 +1,9 @@
-package com.repair.dao;
+package com.repair.dao.imapper;
 
 import com.repair.dao.pojo.Phone;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PhoneMapper {
     int deleteByPrimaryKey(Integer phoneid);
@@ -14,4 +17,6 @@ public interface PhoneMapper {
     int updateByPrimaryKeySelective(Phone record);
 
     int updateByPrimaryKey(Phone record);
+
+    List<Phone> findByName(@Param("ptype")String ptype);
 }

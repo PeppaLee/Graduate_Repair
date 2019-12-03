@@ -7,13 +7,13 @@ public class Login {
 
     private String password;
 
-    private Integer type;
+    private Integer pri;
 
-    public Login(Integer userid, String username, String password, Integer type) {
+    public Login(Integer userid, String username, String password, Integer pri) {
         this.userid = userid;
         this.username = username;
         this.password = password;
-        this.type = type;
+        this.pri = pri;
     }
 
     public Login() {
@@ -44,11 +44,21 @@ public class Login {
         this.password = password == null ? null : password.trim();
     }
 
-    public Integer getType() {
-        return type;
+    public Integer getPri() {
+        return pri;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setPri(Integer pri) {
+        this.pri = pri;
+    }
+
+    @Override
+    public String toString() {
+        return "Login{" +
+                "userid=" + userid +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", pri=" + pri +
+                '}';
     }
 }

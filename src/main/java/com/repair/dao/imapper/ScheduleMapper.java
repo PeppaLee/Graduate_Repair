@@ -1,6 +1,9 @@
-package com.repair.dao;
+package com.repair.dao.imapper;
 
 import com.repair.dao.pojo.Schedule;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ScheduleMapper {
     int deleteByPrimaryKey(Integer schid);
@@ -14,4 +17,6 @@ public interface ScheduleMapper {
     int updateByPrimaryKeySelective(Schedule record);
 
     int updateByPrimaryKey(Schedule record);
+
+    List<Schedule> findByEmp(@Param("empno")Integer empno);
 }

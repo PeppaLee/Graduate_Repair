@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.repair.dao.ScheduleMapper" >
+<mapper namespace="com.repair.dao.imapper.ScheduleMapper" >
   <resultMap id="BaseResultMap" type="com.repair.dao.pojo.Schedule" >
     <constructor >
       <idArg column="schid" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -20,6 +20,13 @@
     from schedule
     where schid = #{schid,jdbcType=INTEGER}
   </select>
+
+  <select id="findByEmp" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from schedule where empno = #{empno}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from schedule
     where schid = #{schid,jdbcType=INTEGER}

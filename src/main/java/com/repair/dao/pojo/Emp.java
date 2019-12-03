@@ -87,4 +87,26 @@ public class Emp {
     public void setPartid(Integer partid) {
         this.partid = partid;
     }
+
+    public Emp(String ename, String gender, String grade, BigDecimal sal, Date hiredate, Integer partid) {
+        this.ename = ename;
+        this.gender = gender;
+        this.grade = grade;
+        this.sal = sal;
+        this.hiredate = hiredate;
+        this.partid = partid;
+    }
+
+    @Override
+    public String toString() {
+        return "Emp{" +
+                "empno=" + empno +
+                ", ename='" + ename + '\'' +
+                ", gender='" + gender + '\'' +
+                ", grade='" + grade + '\'' +
+                ", sal=" + sal +
+                ", hiredate=" + hiredate +
+                ", partid=" + partid +
+                '}';
+    }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.repair.dao.EmpMapper" >
+<mapper namespace="com.repair.dao.imapper.EmpMapper" >
   <resultMap id="BaseResultMap" type="com.repair.dao.pojo.Emp" >
     <constructor >
       <idArg column="empno" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -20,6 +20,10 @@
     <include refid="Base_Column_List" />
     from emp
     where empno = #{empno,jdbcType=INTEGER}
+  </select>
+
+  <select id="findByName" parameterType="map" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" /> from emp where ename like concat('%',#{ename},'%')
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from emp

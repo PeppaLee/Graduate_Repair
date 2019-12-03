@@ -9,6 +9,11 @@ public class Offer {
 
     private BigDecimal offerprice;
 
+    public Offer(String partname, BigDecimal offerprice) {
+        this.partname = partname;
+        this.offerprice = offerprice;
+    }
+
     public Offer(Integer partid, String partname, BigDecimal offerprice) {
         this.partid = partid;
         this.partname = partname;
@@ -41,5 +46,14 @@ public class Offer {
 
     public void setOfferprice(BigDecimal offerprice) {
         this.offerprice = offerprice;
+    }
+
+    @Override
+    public String toString() {
+        return "Offer{" +
+                "partid=" + partid +
+                ", partname='" + partname + '\'' +
+                ", offerprice=" + offerprice +
+                '}';
     }
 }

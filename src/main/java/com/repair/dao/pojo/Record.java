@@ -18,6 +18,15 @@ public class Record {
 
     private String result;
 
+    public Record(Integer empno, Integer phoneid, Date startday, Date endday, BigDecimal charge, String result) {
+        this.empno = empno;
+        this.phoneid = phoneid;
+        this.startday = startday;
+        this.endday = endday;
+        this.charge = charge;
+        this.result = result;
+    }
+
     public Record(Integer recordid, Integer empno, Integer phoneid, Date startday, Date endday, BigDecimal charge, String result) {
         this.recordid = recordid;
         this.empno = empno;
@@ -86,5 +95,18 @@ public class Record {
 
     public void setResult(String result) {
         this.result = result == null ? null : result.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Record{" +
+                "recordid=" + recordid +
+                ", empno=" + empno +
+                ", phoneid=" + phoneid +
+                ", startday=" + startday +
+                ", endday=" + endday +
+                ", charge=" + charge +
+                ", result='" + result + '\'' +
+                '}';
     }
 }

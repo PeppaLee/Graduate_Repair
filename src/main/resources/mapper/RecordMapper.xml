@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.repair.dao.RecordMapper" >
+<mapper namespace="com.repair.dao.imapper.RecordMapper" >
   <resultMap id="BaseResultMap" type="com.repair.dao.pojo.Record" >
     <constructor >
       <idArg column="recordid" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -20,6 +20,12 @@
     <include refid="Base_Column_List" />
     from record
     where recordid = #{recordid,jdbcType=INTEGER}
+  </select>
+
+  <select id="findByEmp" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from record where empno = #{empno}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from record

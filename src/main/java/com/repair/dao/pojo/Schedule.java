@@ -73,4 +73,16 @@ public class Schedule {
     public void setDeclare(String declare) {
         this.declare = declare == null ? null : declare.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "schid=" + schid +
+                ", empno=" + empno +
+                ", phoneid=" + phoneid +
+                ", repairschdeule='" + repairschdeule + '\'' +
+                ", expectresult='" + expectresult + '\'' +
+                ", declare='" + declare + '\'' +
+                '}';
+    }
 }

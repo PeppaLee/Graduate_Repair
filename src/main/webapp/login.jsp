@@ -19,13 +19,13 @@
             <div style="height:150px;"></div>
             <div class="media media-y margin-big-bottom">
             </div>
-            <form action="index.html" method="post">
+            <form action="/login.do" method="post">
                 <div class="panel loginbox">
-                    <div class="text-center margin-big padding-big-top"><h1>后台管理中心</h1></div>
+                    <div class="text-center margin-big padding-big-top"><h1>米家手机售后服务维修后台管理中心</h1></div>
                     <div class="panel-body" style="padding:30px; padding-bottom:10px; padding-top:10px;">
                         <div class="form-group">
                             <div class="field field-icon-right">
-                                <input type="text" class="input input-big" name="name" placeholder="登录账号"
+                                <input type="text" class="input input-big" name="username" placeholder="登录账号"
                                        data-validate="required:请填写账号"/>
                                 <span class="icon icon-user margin-small"></span>
                             </div>
@@ -39,9 +39,6 @@
                         </div>
                         <div class="form-group">
                             <div class="field">
-                                <!--<input type="text" class="input input-big" name="code" placeholder="填写右侧的验证码" data-validate="required:请填写右侧的验证码" />
-                               <img src="images/passcode.jpg" alt="" width="100" height="32" class="passcode" style="height:43px;cursor:pointer;" onclick="this.src=this.src+'?'">  -->
-                                <form action="/alllogin.do" method="post">
                                     <span style="font-size:x-large">请选择权限</span>
                                     <select style="font-size:x-large" name="pri">
                                         <option value="1">管理员</option>
@@ -50,7 +47,6 @@
                                     <div style="padding:30px;">
                                             <input type="submit" class="button button-block bg-main text-big input-big" value="登录">
                                         </div>
-                                </form>
                             </div>
                         </div>
                     </div>

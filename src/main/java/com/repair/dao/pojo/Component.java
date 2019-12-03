@@ -11,6 +11,12 @@ public class Component {
 
     private Integer inventory;
 
+    public Component(String cname, BigDecimal cprice, Integer inventory) {
+        this.cname = cname;
+        this.cprice = cprice;
+        this.inventory = inventory;
+    }
+
     public Component(Integer cid, String cname, BigDecimal cprice, Integer inventory) {
         this.cid = cid;
         this.cname = cname;
@@ -52,5 +58,15 @@ public class Component {
 
     public void setInventory(Integer inventory) {
         this.inventory = inventory;
+    }
+
+    @Override
+    public String toString() {
+        return "Component{" +
+                "cid=" + cid +
+                ", cname='" + cname + '\'' +
+                ", cprice=" + cprice +
+                ", inventory=" + inventory +
+                '}';
     }
 }

@@ -62,4 +62,15 @@ public class Grade {
     public void setGrade(String grade) {
         this.grade = grade == null ? null : grade.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Grade{" +
+                "empno=" + empno +
+                ", ename='" + ename + '\'' +
+                ", times=" + times +
+                ", successtimes=" + successtimes +
+                ", grade='" + grade + '\'' +
+                '}';
+    }
 }
