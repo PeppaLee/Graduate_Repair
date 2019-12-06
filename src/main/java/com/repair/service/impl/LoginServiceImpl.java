@@ -5,10 +5,15 @@ import com.repair.dao.idao.ILoginPageDao;
 import com.repair.dao.imapper.LoginMapper;
 import com.repair.dao.impl.LoginPageDaoImpl;
 import com.repair.dao.pojo.Login;
+import com.repair.dao.utils.DBUtils;
 import com.repair.service.iservice.ILoginService;
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.rmi.runtime.Log;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Service("loginService")
@@ -21,7 +26,15 @@ public class LoginServiceImpl implements ILoginService {
 
     @Override
     public Login login(String username, String password) {
-        Login login = loginMapper.selectLogin(username, password);
+        QueryRunner qr = DBUtils.getQueryRunner();
+        String sql = " select userid,username,`password`,pri,empno from login where username=? and `password`=md5(?)";
+        Login login = null;
+        try {
+            login = qr.query(sql,new BeanHandler<Login>(Login.class),username,password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+//        Login login = loginMapper.selectLogin(username, password);
         return login;
     }
 

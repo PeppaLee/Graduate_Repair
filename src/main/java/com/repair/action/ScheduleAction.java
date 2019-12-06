@@ -1,6 +1,7 @@
 package com.repair.action;
 
 import com.repair.commons.PageBean;
+import com.repair.dao.pojo.Login;
 import com.repair.dao.pojo.Offer;
 import com.repair.dao.pojo.Schedule;
 import com.repair.service.iservice.IScheduleService;
@@ -43,6 +44,8 @@ public class ScheduleAction {
     public String ScheduleRouter(@RequestParam("router") String router) {
         if ("schedule_select".equalsIgnoreCase(router)) {
             return "schedule_select";
+        } else if ("emp_schedule_select".equalsIgnoreCase(router)) {
+            return "emp_schedule_select";
         } else {
             return "error";
         }
@@ -72,5 +75,17 @@ public class ScheduleAction {
         }
     }
 
-
+    @RequestMapping("scheduleself.do")
+    public String ScheduleSelf(HttpServletRequest request) {
+        int empno = (int) request.getSession().getAttribute("empno");
+//        Login login = (Login) request.getSession().getAttribute("login");
+        List<Schedule> scheduleList = scheduleService.findSelf(empno);
+        if (scheduleList != null && scheduleList.size() > 0) {
+            request.setAttribute("scheduleList", scheduleList);
+            return "emp_schedule_select";
+        } else {
+            return "error";
+        }
+    }
 }
+

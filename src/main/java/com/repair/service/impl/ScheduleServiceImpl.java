@@ -10,6 +10,7 @@ import com.repair.service.iservice.IScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Service("scheduleService")
@@ -32,6 +33,17 @@ public class ScheduleServiceImpl implements IScheduleService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Schedule> findSelf(Integer empno) {
+        List<Schedule> scheduleList = null;
+        try {
+             scheduleList = schedulePageDao.findSchedule(empno);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return scheduleList;
     }
 
     @Override

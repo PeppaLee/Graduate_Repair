@@ -9,6 +9,16 @@ public class Login {
 
     private Integer pri;
 
+    private Integer empno;
+
+    public Integer getEmpno() {
+        return empno;
+    }
+
+    public void setEmpno(Integer empno) {
+        this.empno = empno;
+    }
+
     public Login(Integer userid, String password) {
         this.userid = userid;
         this.password = password;

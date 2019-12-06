@@ -17,4 +17,6 @@ public interface IScheduleService {
     List<Schedule> findByEmp(Integer empno);
 
     public void findAllByPage(PageBean<Schedule> pageBean);
+
+    List<Schedule> findSelf(Integer empno);
 }
