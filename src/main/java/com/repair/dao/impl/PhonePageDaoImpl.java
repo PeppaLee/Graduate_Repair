@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("phonePageDao")
 public class PhonePageDaoImpl implements IPhonePageDao {
     @Override
     public void getAll(PageBean<Phone> pageBean) throws Exception {

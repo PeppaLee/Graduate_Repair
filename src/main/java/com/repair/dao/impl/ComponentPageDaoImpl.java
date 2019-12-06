@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("componentPageDao")
 public class ComponentPageDaoImpl implements IComponentPageDao {
     @Override
     public void getAll(PageBean<Component> pageBean) throws Exception {

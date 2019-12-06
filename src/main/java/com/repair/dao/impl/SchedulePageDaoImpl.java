@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("schedulePageDao")
 public class SchedulePageDaoImpl implements ISchedulePageDao {
     @Override
     public void getAll(PageBean<Schedule> pageBean) throws Exception {

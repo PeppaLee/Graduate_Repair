@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("gradePageDao")
 public class GradePageDaoImpl implements IGradePageDao {
     @Override
     public void getAll(PageBean<Grade> pageBean) throws Exception {

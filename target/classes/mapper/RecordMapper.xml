@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.repair.dao.imapper.RecordMapper" >
+  <resultMap id="BaseResultMap" type="com.repair.dao.pojo.Record" >
+    <constructor >
+      <idArg column="recordid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="empno" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="phoneid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="startday" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="endday" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="charge" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="result" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    recordid, empno, phoneid, startday, endday, charge, result
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from record
+    where recordid = #{recordid,jdbcType=INTEGER}
+  </select>
+
+  <select id="findByEmp" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from record where empno = #{empno}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from record
+    where recordid = #{recordid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.repair.dao.pojo.Record" >
+    insert into record (recordid, empno, phoneid, 
+      startday, endday, charge, 
+      result)
+    values (#{recordid,jdbcType=INTEGER}, #{empno,jdbcType=INTEGER}, #{phoneid,jdbcType=INTEGER}, 
+      #{startday,jdbcType=DATE}, #{endday,jdbcType=DATE}, #{charge,jdbcType=DECIMAL}, 
+      #{result,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.repair.dao.pojo.Record" >
+    insert into record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordid != null" >
+        recordid,
+      </if>
+      <if test="empno != null" >
+        empno,
+      </if>
+      <if test="phoneid != null" >
+        phoneid,
+      </if>
+      <if test="startday != null" >
+        startday,
+      </if>
+      <if test="endday != null" >
+        endday,
+      </if>
+      <if test="charge != null" >
+        charge,
+      </if>
+      <if test="result != null" >
+        result,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordid != null" >
+        #{recordid,jdbcType=INTEGER},
+      </if>
+      <if test="empno != null" >
+        #{empno,jdbcType=INTEGER},
+      </if>
+      <if test="phoneid != null" >
+        #{phoneid,jdbcType=INTEGER},
+      </if>
+      <if test="startday != null" >
+        #{startday,jdbcType=DATE},
+      </if>
+      <if test="endday != null" >
+        #{endday,jdbcType=DATE},
+      </if>
+      <if test="charge != null" >
+        #{charge,jdbcType=DECIMAL},
+      </if>
+      <if test="result != null" >
+        #{result,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.repair.dao.pojo.Record" >
+    update record
+    <set >
+      <if test="empno != null" >
+        empno = #{empno,jdbcType=INTEGER},
+      </if>
+      <if test="phoneid != null" >
+        phoneid = #{phoneid,jdbcType=INTEGER},
+      </if>
+      <if test="startday != null" >
+        startday = #{startday,jdbcType=DATE},
+      </if>
+      <if test="endday != null" >
+        endday = #{endday,jdbcType=DATE},
+      </if>
+      <if test="charge != null" >
+        charge = #{charge,jdbcType=DECIMAL},
+      </if>
+      <if test="result != null" >
+        result = #{result,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where recordid = #{recordid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.repair.dao.pojo.Record" >
+    update record
+    set empno = #{empno,jdbcType=INTEGER},
+      phoneid = #{phoneid,jdbcType=INTEGER},
+      startday = #{startday,jdbcType=DATE},
+      endday = #{endday,jdbcType=DATE},
+      charge = #{charge,jdbcType=DECIMAL},
+      result = #{result,jdbcType=VARCHAR}
+    where recordid = #{recordid,jdbcType=INTEGER}
+  </update>
+</mapper>

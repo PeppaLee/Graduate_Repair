@@ -20,4 +20,10 @@ public class LoginServiceImplTest {
         Login login = loginService.login("admin","123456");
         System.out.println(login);
     }
+
+    @Test
+    public void findExist() {
+        Login login = loginService.findExist("liyang");
+        System.err.println(login);
+    }
 }

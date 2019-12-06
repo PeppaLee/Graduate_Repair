@@ -9,6 +9,17 @@ public class Login {
 
     private Integer pri;
 
+    public Login(Integer userid, String password) {
+        this.userid = userid;
+        this.password = password;
+    }
+
+    public Login(String username, String password, Integer pri) {
+        this.username = username;
+        this.password = password;
+        this.pri = pri;
+    }
+
     public Login(Integer userid, String username, String password, Integer pri) {
         this.userid = userid;
         this.username = username;

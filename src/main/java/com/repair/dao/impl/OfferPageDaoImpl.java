@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("offerPageDao")
 public class OfferPageDaoImpl implements IOfferPageDao {
     @Override
     public void getAll(PageBean<Offer> pageBean) throws Exception {

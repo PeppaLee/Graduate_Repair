@@ -11,15 +11,15 @@ public class Schedule {
 
     private String expectresult;
 
-    private String declare;
+    private String declares;
 
-    public Schedule(Integer schid, Integer empno, Integer phoneid, String repairschdeule, String expectresult, String declare) {
+    public Schedule(Integer schid, Integer empno, Integer phoneid, String repairschdeule, String expectresult, String declares) {
         this.schid = schid;
         this.empno = empno;
         this.phoneid = phoneid;
         this.repairschdeule = repairschdeule;
         this.expectresult = expectresult;
-        this.declare = declare;
+        this.declares = declares;
     }
 
     public Schedule() {
@@ -66,12 +66,12 @@ public class Schedule {
         this.expectresult = expectresult == null ? null : expectresult.trim();
     }
 
-    public String getDeclare() {
-        return declare;
+    public String getDeclares() {
+        return declares;
     }
 
-    public void setDeclare(String declare) {
-        this.declare = declare == null ? null : declare.trim();
+    public void setDeclares(String declares) {
+        this.declares = declares == null ? null : declares.trim();
     }
 
     @Override
@@ -82,7 +82,7 @@ public class Schedule {
                 ", phoneid=" + phoneid +
                 ", repairschdeule='" + repairschdeule + '\'' +
                 ", expectresult='" + expectresult + '\'' +
-                ", declare='" + declare + '\'' +
+                ", declares='" + declares + '\'' +
                 '}';
     }
 }

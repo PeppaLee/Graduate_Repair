@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("recordPageDao")
 public class RecordPageDaoImpl implements IRecordPageDao {
     @Override
     public void getAll(PageBean<Record> pageBean) throws Exception {

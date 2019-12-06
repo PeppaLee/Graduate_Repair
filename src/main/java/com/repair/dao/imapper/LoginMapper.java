@@ -3,6 +3,8 @@ package com.repair.dao.imapper;
 import com.repair.dao.pojo.Login;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface LoginMapper {
     int deleteByPrimaryKey(Integer userid);
 
@@ -17,4 +19,10 @@ public interface LoginMapper {
     int updateByPrimaryKeySelective(Login record);
 
     int updateByPrimaryKey(Login record);
+
+    List<Login> findByName(@Param("username")String username);
+
+    Login findExist(@Param("username")String username);
+
+    int updatePassword(Login record);
 }
