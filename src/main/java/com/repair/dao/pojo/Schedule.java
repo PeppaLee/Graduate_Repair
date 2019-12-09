@@ -13,6 +13,14 @@ public class Schedule {
 
     private String declares;
 
+    public Schedule(Integer empno, Integer phoneid, String repairschdeule, String expectresult, String declares) {
+        this.empno = empno;
+        this.phoneid = phoneid;
+        this.repairschdeule = repairschdeule;
+        this.expectresult = expectresult;
+        this.declares = declares;
+    }
+
     public Schedule(Integer schid, Integer empno, Integer phoneid, String repairschdeule, String expectresult, String declares) {
         this.schid = schid;
         this.empno = empno;

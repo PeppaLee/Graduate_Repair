@@ -97,7 +97,7 @@ public class GradeAction {
                 return "grade_select";
             }
         } else {
-            return "error";
+            return "grade_select_error";
         }
     }
 
@@ -109,7 +109,7 @@ public class GradeAction {
             request.setAttribute("gradeList", gradeList);
             return "grade_select";
         } else {
-            return "error";
+            return "grade_select_error";
         }
     }
 

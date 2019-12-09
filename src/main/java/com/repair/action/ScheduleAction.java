@@ -4,6 +4,7 @@ import com.repair.commons.PageBean;
 import com.repair.dao.pojo.Login;
 import com.repair.dao.pojo.Offer;
 import com.repair.dao.pojo.Schedule;
+import com.repair.service.iservice.ILoginService;
 import com.repair.service.iservice.IScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,9 @@ import java.util.List;
 public class ScheduleAction {
     @Autowired
     IScheduleService scheduleService;
+
+    @Autowired
+    ILoginService loginService;
 
     @RequestMapping("schedulepage.do")
     public String SchedulePage(HttpServletRequest request) {
@@ -46,6 +50,29 @@ public class ScheduleAction {
             return "schedule_select";
         } else if ("emp_schedule_select".equalsIgnoreCase(router)) {
             return "emp_schedule_select";
+        } else if ("emppwd".equalsIgnoreCase(router)) {
+            return "emppwd";
+        } else if ("schedule_add".equalsIgnoreCase(router)) {
+            return "schedule_add";
+        } else if ("schedule_update".equalsIgnoreCase(router)) {
+            return "schedule_update";
+        } else {
+            return "error";
+        }
+    }
+
+    @RequestMapping("schedulesave.do")
+    public String ScheduleSave(HttpServletRequest request) {
+        int empno = (int) request.getSession().getAttribute("empno");
+        int phoneid = Integer.parseInt(request.getParameter("phoneid"));
+        String repairschedule = request.getParameter("repairschedule");
+        String expectresult = request.getParameter("expectresult");
+        String declares = request.getParameter("declares");
+
+        Schedule schedule = new Schedule(empno, phoneid, repairschedule, expectresult, declares);
+        int i = scheduleService.save(schedule);
+        if (i > 0) {
+            return "redirect:scheduleself.do";
         } else {
             return "error";
         }
@@ -53,13 +80,19 @@ public class ScheduleAction {
 
     @RequestMapping("scheduleid.do")
     public String ScheduleFindById(HttpServletRequest request) {
+        String type = request.getParameter("type");
         int schid = Integer.parseInt(request.getParameter("schid"));
         Schedule schedule = scheduleService.findById(schid);
         if (schedule != null) {
-            request.setAttribute("scheduleList", Arrays.asList(schedule));
-            return "schedule_select";
+            if ("update".equalsIgnoreCase(type)) {
+                request.setAttribute("schedule", schedule);
+                return "schedule_update";
+            } else {
+                request.setAttribute("scheduleList", Arrays.asList(schedule));
+                return "schedule_select";
+            }
         } else {
-            return "error";
+            return "schedule_select_error";
         }
     }
 
@@ -71,18 +104,52 @@ public class ScheduleAction {
             request.setAttribute("scheduleList", scheduleList);
             return "schedule_select";
         } else {
-            return "error";
+            return "schedule_select_error";
         }
     }
 
     @RequestMapping("scheduleself.do")
     public String ScheduleSelf(HttpServletRequest request) {
-        int empno = (int) request.getSession().getAttribute("empno");
+        int empno = Integer.parseInt(request.getParameter("empno"));
+        System.err.println(empno);
+//        int empno = (int) request.getSession().getAttribute("empno");
 //        Login login = (Login) request.getSession().getAttribute("login");
         List<Schedule> scheduleList = scheduleService.findSelf(empno);
         if (scheduleList != null && scheduleList.size() > 0) {
             request.setAttribute("scheduleList", scheduleList);
             return "emp_schedule_select";
+        } else {
+            return "error";
+        }
+    }
+
+    @RequestMapping("empupdatepwd.do")
+    public String UpdatePassword(HttpServletRequest request) {
+        int userid = (int) request.getSession().getAttribute("loginid");
+        String password = request.getParameter("newpass");
+        System.err.println(userid);
+        Login login = new Login(userid, password);
+        int i = loginService.updatePassword(login);
+        if (i > 0) {
+            return "success";
+        } else {
+            return "error";
+        }
+    }
+
+    @RequestMapping("scheduleupdate.do")
+    public String ScheduleUpdate(HttpServletRequest request) {
+        int schid = Integer.parseInt(request.getParameter("schid"));
+        int empno = (int) request.getSession().getAttribute("empno");
+        int phoneid = Integer.parseInt(request.getParameter("phoneid"));
+        String repairschdeule = request.getParameter("repairschdeule");
+        String expectresult = request.getParameter("expectresult");
+        String declares = request.getParameter("declares");
+
+        Schedule schedule = new Schedule(schid,empno, phoneid, repairschdeule, expectresult, declares);
+        int i = scheduleService.update(schedule);
+        if (i > 0) {
+            return "redirect:scheduleself.do";
         } else {
             return "error";
         }

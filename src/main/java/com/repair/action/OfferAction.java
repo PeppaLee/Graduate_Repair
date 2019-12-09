@@ -93,7 +93,7 @@ public class OfferAction {
                 return "offer_select";
             }
         } else {
-            return "error";
+            return "offer_select_error";
         }
     }
 
@@ -105,7 +105,7 @@ public class OfferAction {
             request.setAttribute("offerList", offerList);
             return "offer_select";
         } else {
-            return "error";
+            return "offer_select_error";
         }
     }
 

@@ -106,7 +106,7 @@ public class RecordAction {
                 return "record_select";
             }
         } else {
-            return "error";
+            return "record_select_error";
         }
     }
 
@@ -118,7 +118,7 @@ public class RecordAction {
             request.setAttribute("recordList", recordList);
             return "record_select";
         } else {
-            return "error";
+            return "record_select_error";
         }
     }
 

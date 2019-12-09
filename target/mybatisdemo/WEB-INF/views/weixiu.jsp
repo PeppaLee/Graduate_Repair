@@ -17,7 +17,7 @@
     <h1>维修员后台管理中心</h1>
   </div>
   <div class="head-l"> &nbsp;&nbsp;<a class="button button-little bg-red" href="login.jsp"><span class="icon-power-off"></span> 退出登录</a>
-    <a class="button button-little bg-green" href="/loginrouter.do?router=adminpwd" target="right">
+    <a class="button button-little bg-green" href="/schedulerouter.do?router=emppwd" target="right">
       <span class="icon-adn"></span> 更改密码</a>
   </div>
 </div>
@@ -26,8 +26,8 @@
   </ul>
   <h2><span class="icon-pencil-square-o"></span>维修进度管理</h2>
   <ul>
-    <li><a href="/scheduleself.do" target="right"><span class="icon-caret-right"></span>查看维修进度</a></li>
-    <li><a href="/schedulerouter.do?router=schedule_select" target="right"><span class="icon-caret-right"></span>增加维修进度</a></li>
+    <li><a href="/scheduleself.do?empno=${sessionScope.empno}" target="right"><span class="icon-caret-right"></span>查看维修进度</a></li>
+    <li><a href="/schedulerouter.do?router=schedule_add" target="right"><span class="icon-caret-right"></span>增加维修进度</a></li>
   </ul>
   <h2><span class="icon-pencil-square-o"></span>维修员等级级管理</h2>
   <ul>
@@ -50,7 +50,7 @@
 </script>
 <ul class="bread" >
 
-  <li><b>当前时间：</b><span style="color:red;" id="time"></span>
+  <li><b>${sessionScope.empno}当前时间：</b><span style="color:red;" id="time"></span>
 </ul>
 <div class="admin">
   <iframe scrolling="auto" rameborder="0" src="" name="right" width="100%" height="100%"></iframe>

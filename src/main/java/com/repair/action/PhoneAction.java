@@ -94,7 +94,7 @@ public class PhoneAction {
                 return "phone_select";
             }
         } else {
-            return "error";
+            return "phone_select_error";
         }
     }
 
@@ -106,7 +106,7 @@ public class PhoneAction {
             request.setAttribute("phoneList", phoneList);
             return "phone_select";
         } else {
-            return "error";
+            return "phone_select_error";
         }
     }
 

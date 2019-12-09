@@ -65,7 +65,7 @@ public class ComponentAction {
                 return "component_select";
             }
         } else {
-            return "error";
+            return "component_select_error";
         }
     }
 
@@ -77,7 +77,7 @@ public class ComponentAction {
             request.setAttribute("componentList", componentList);
             return "component_select";
         } else {
-            return "error";
+            return "component_select_error";
         }
     }
 

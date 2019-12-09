@@ -27,24 +27,24 @@ public class LoginAction {
                         @RequestParam(value = "pri") Integer pri,
                         HttpServletRequest request) {
         Login login = loginService.login(username, password);
-//        HttpSession session1 = request.getSession();
-//        HttpSession session2 = request.getSession();
+        HttpSession session1 = request.getSession();
+        HttpSession session2 = request.getSession();
         HttpSession session3 = request.getSession();
         if (login != null) {
             if (pri == login.getPri() && pri == 1) {
-//                session1.setAttribute("loginid", login.getUserid());
-//                session2.setAttribute("login",login);
+                session2.setAttribute("login",login);
+                session3.setAttribute("loginid", login.getUserid());
                 return "index";
             } else if (pri == login.getPri() && pri == 2) {
-//                session1.setAttribute("loginid", login.getUserid());
-//                session2.setAttribute("login",login);
+                session1.setAttribute("loginid", login.getUserid());
+                session2.setAttribute("login",login);
                 session3.setAttribute("empno",login.getEmpno());
                 return "weixiu";
             } else {
-                return "error";
+                return "login_error";
             }
         } else {
-            return "error";
+            return "login_error";
         }
     }
 //    @RequestMapping(value = "login.do", method = RequestMethod.POST)
@@ -164,7 +164,7 @@ public class LoginAction {
             request.setAttribute("loginList", loginList);
             return "login_select";
         } else {
-            return "error";
+            return "login_select_error";
         }
     }
 }

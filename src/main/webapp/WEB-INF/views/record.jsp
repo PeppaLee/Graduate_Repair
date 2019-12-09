@@ -27,7 +27,7 @@
     </div>
     <table class="table table-hover text-center">
       <tr>
-        <th width="100" style="text-align:left; padding-left:20px;">维修记录编号</th>
+        <th width="120" style="text-align:left; padding-left:20px;">维修记录编号</th>
         <th width="10%">维修员编号</th>
         <th>维修手机编号</th>
         <th width="10%">维修开始时间</th>

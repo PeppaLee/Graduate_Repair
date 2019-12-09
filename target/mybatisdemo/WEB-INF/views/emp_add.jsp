@@ -32,8 +32,8 @@
 				</div>
 				<div class="field">
 					<select name="gender" class="input w50" />
-					<option value="male">男</option>
-					<option value="female">女</option>
+					<option value="男">男</option>
+					<option value="女">女</option>
 					</select>
 				</div>
 			</div>

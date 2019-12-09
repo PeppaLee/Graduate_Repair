@@ -47,7 +47,7 @@ public class EmpAction {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String ename = request.getParameter("ename");
             String gender = request.getParameter("gender");
-            String grade = request.getParameter("gender");
+            String grade = request.getParameter("grade");
             BigDecimal sal = new BigDecimal(request.getParameter("sal"));
             String hiredate = request.getParameter("hiredate");
             int partid = Integer.parseInt(request.getParameter("partid"));
@@ -55,7 +55,7 @@ public class EmpAction {
             Emp emp = new Emp(ename, gender, grade, sal, sdf.parse(hiredate), partid);
             int i = empService.save(emp);
             if (i > 0) {
-                return "redirect:emppage.do";
+                return "emp_add_success";
             } else {
                 return "error";
             }
@@ -106,7 +106,7 @@ public class EmpAction {
                     return "emp_select";
                 }
             } else {
-                return "error";
+                return "emp_select_error";
             }
         }
 
@@ -118,7 +118,7 @@ public class EmpAction {
                 request.setAttribute("empList", empList);
                 return "emp_select";
             } else {
-                return "error";
+                return "emp_select_error";
             }
         }
 
